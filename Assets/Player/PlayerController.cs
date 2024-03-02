@@ -54,21 +54,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(moveValue.x);
         //Add forces
-        if (moveValue.x != 0)
-        {
-            rb.AddForce(moveValue.x * Vector2.right * acceleration);
-        }
-        else
-        {
-            rb.AddForce(new Vector2(-rb.velocity.x * (acceleration / 2), rb.velocity.y));
-        }
+        rb.velocity = new Vector2(moveValue.x * maxSpeed, rb.velocity.y);
 
-        //Clamp speed
-        if (rb.velocity.x > maxSpeed || rb.velocity.x < -maxSpeed)
-        {
-            rb.velocity = new Vector2(rb.velocity.normalized.x * maxSpeed, rb.velocity.y);
-        }
+        ////Clamp speed
+        //if (rb.velocity.x > maxSpeed || rb.velocity.x < -maxSpeed)
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.normalized.x * maxSpeed, rb.velocity.y);
+        //}
     }
 }
