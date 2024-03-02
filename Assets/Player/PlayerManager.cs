@@ -7,10 +7,11 @@ public class PlayerManager : MonoBehaviour
 {
     public int currentSize = 1; //currentSize of player
     CinemachineVirtualCamera cam;
-
+    PlayerController controller;
     private void Start()
     {
         cam = GetComponentInChildren<CinemachineVirtualCamera>();
+        controller = GetComponent<PlayerController>();
     }
 
     //Vars for growing "animation"
@@ -24,6 +25,9 @@ public class PlayerManager : MonoBehaviour
         currentCamSize = cam.m_Lens.OrthographicSize;
         isGrowing = true;
     }
+
+    //Vine climbing
+    public bool canClimb = false;
 
     private void Update()
     {
@@ -44,6 +48,25 @@ public class PlayerManager : MonoBehaviour
             {
                 isGrowing = false;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Vine")
+        {
+            canClimb = true;
+            controller.rb.velocity = new Vector2(controller.rb.velocity.x, 0);
+            Debug.Log("Can climb");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Vine")
+        {
+            canClimb = false;
+            Debug.Log("Can't climb");
         }
     }
 }

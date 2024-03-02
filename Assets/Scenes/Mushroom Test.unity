@@ -418,7 +418,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &4711202470968125172
+--- !u!1001 &2000193121
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -432,11 +432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093111040224656245, guid: 89d672b181288204f8738e6c32f31905, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4638952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093111040224656245, guid: 89d672b181288204f8738e6c32f31905, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1965
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093111040224656245, guid: 89d672b181288204f8738e6c32f31905, type: 3}
       propertyPath: m_LocalPosition.z
@@ -481,5 +481,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1783922404}
-  - {fileID: 4711202470968125172}
   - {fileID: 1646573322}
+  - {fileID: 2000193121}

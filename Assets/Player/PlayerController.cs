@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     //Components
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
+    PlayerManager playerManager;
 
     //Input
     [Header("Input Actions")]
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         //Get components
         rb = GetComponent<Rigidbody2D>();
+        playerManager = GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -46,9 +48,12 @@ public class PlayerController : MonoBehaviour
         moveValue = moveAction.ReadValue<Vector2>();
 
         //Jump
-        if (jumpAction.WasPressedThisFrame())
+        if (!playerManager.canClimb)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (jumpAction.WasPressedThisFrame())
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -57,10 +62,22 @@ public class PlayerController : MonoBehaviour
         //Add forces
         rb.velocity = new Vector2(moveValue.x * maxSpeed, rb.velocity.y);
 
-        ////Clamp speed
-        //if (rb.velocity.x > maxSpeed || rb.velocity.x < -maxSpeed)
-        //{
-        //    rb.velocity = new Vector2(rb.velocity.normalized.x * maxSpeed, rb.velocity.y);
-        //}
+        //Climbing
+        if (playerManager.canClimb)
+        {
+            if (rb.gravityScale > 0)
+            {
+                rb.gravityScale = 0;
+            }
+
+            transform.Translate(Vector2.up * moveValue.y * maxSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            if (rb.gravityScale == 0)
+            {
+                rb.gravityScale = 4;
+            }
+        }
     }
 }
