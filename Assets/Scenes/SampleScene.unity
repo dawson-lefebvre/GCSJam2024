@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1702834435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 408033319472399797, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+  m_PrefabInstance: {fileID: 4711202470968125172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1702834439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702834435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f60ccb4f7f3f04fac665d75f963aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSize: 1
 --- !u!1 &1783922402
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 2914548394885511311, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 3093111040224656245, guid: 89d672b181288204f8738e6c32f31905, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4638952
@@ -305,10 +327,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3093111040224656245, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962231397917876788, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042484011780686621, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830580443952426623, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      propertyPath: orthographic size
+      value: 4.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 408033319472399797, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1702834439}
   m_SourcePrefab: {fileID: 100100000, guid: 89d672b181288204f8738e6c32f31905, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
