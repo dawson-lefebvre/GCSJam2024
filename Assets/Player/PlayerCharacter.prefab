@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSize: 1
   canClimb: 0
+  health: 50
 --- !u!50 &7612138282492184445
 Rigidbody2D:
   serializedVersion: 4
@@ -187,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 415363879793811614}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 2.2799995, z: 0}
+  m_LocalPosition: {x: 0, y: 4.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

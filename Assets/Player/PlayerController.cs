@@ -52,7 +52,8 @@ public class PlayerController : MonoBehaviour
         {
             if (jumpAction.WasPressedThisFrame())
             {
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                rb.velocity = new Vector2(0, jumpForce);
             }
         }
     }
