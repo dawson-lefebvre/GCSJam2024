@@ -9,7 +9,8 @@ public class Stump : MonoBehaviour
     float amountToDrop = 0;
     float amountDropped = 0;
     Bounds stumpBounds;
-
+    bool spawnGem = false;
+    [SerializeField] GameObject gem;
     private void Start()
     {
         stumpBounds = GetComponentInChildren<BoxCollider2D>().bounds;
@@ -24,12 +25,15 @@ public class Stump : MonoBehaviour
             {
                 case 1:
                     amountToDrop = stumpBounds.size.y / 6;
+                    spawnGem = false;
                     break;
                 case 2:
                     amountToDrop = stumpBounds.size.y / 4;
+                    spawnGem = false;
                     break;
                 case 3:
                     amountToDrop = stumpBounds.size.y / 2;
+                    spawnGem = true;
                     break;
                 default:
                     break;
@@ -40,9 +44,10 @@ public class Stump : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             isDropping = false;
+            gem.SetActive(false);
         }
     }
 
@@ -51,15 +56,21 @@ public class Stump : MonoBehaviour
         //Move down or up
         if (isDropping)
         {
-            if(amountDropped < amountToDrop)
+            if (amountDropped < amountToDrop)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y - Time.deltaTime * dropSpeed, 0);
                 amountDropped += Time.deltaTime;
             }
+            else if (!gem.activeInHierarchy)
+            {
+
+                gem.SetActive(true);
+
+            }
         }
         else
         {
-            if(amountDropped > 0)
+            if (amountDropped > 0)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * dropSpeed);
                 amountDropped -= Time.deltaTime;

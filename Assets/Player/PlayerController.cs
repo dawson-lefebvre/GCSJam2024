@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     //Components
     public Rigidbody2D rb;
     PlayerManager playerManager;
+    SpriteRenderer spriteRenderer;
 
     //Input
     [Header("Input Actions")]
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         //Get components
         rb = GetComponent<Rigidbody2D>();
         playerManager = GetComponent<PlayerManager>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -58,6 +60,21 @@ public class PlayerController : MonoBehaviour
     {
         //Read values
         moveValue = moveAction.ReadValue<Vector2>();
+
+        if(moveValue.x < 0)
+        {
+            if(!spriteRenderer.flipX)
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
+        else if (moveValue.x > 0)
+        {
+            if (spriteRenderer.flipX)
+            {
+                spriteRenderer.flipX = false;
+            }
+        }
 
         //Jump
         if (!playerManager.canClimb)

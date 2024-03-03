@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour
 {
+    [SerializeField] PlayerManager playerManager;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            FindObjectOfType<PlayerManager>().Grow();
+            playerManager.Grow();
             Destroy(gameObject);
         }
     }

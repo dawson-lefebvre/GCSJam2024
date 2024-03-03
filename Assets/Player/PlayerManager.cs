@@ -48,12 +48,14 @@ public class PlayerManager : MonoBehaviour
 
             if(cam.m_Lens.OrthographicSize < currentCamSize * 2)
             {
-                cam.m_Lens.OrthographicSize += Time.deltaTime * 2;
+                cam.m_Lens.OrthographicSize += Time.deltaTime * 6;
             }
 
             if(gameObject.transform.localScale.x >= currentScale.x * 2 && cam.m_Lens.OrthographicSize >= currentCamSize * 2)
             {
                 isGrowing = false;
+                controller.maxSpeed *= 2;
+                controller.jumpForce *= 1.2f;
             }
         }
     }
