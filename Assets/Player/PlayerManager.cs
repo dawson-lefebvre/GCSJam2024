@@ -1,7 +1,9 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     {
         cam = GetComponentInChildren<CinemachineVirtualCamera>();
         controller = GetComponent<PlayerController>();
+        Grow();
     }
 
     //Vars for growing "animation"
@@ -28,6 +31,9 @@ public class PlayerManager : MonoBehaviour
 
     //Vine climbing
     public bool canClimb = false;
+
+    //Health
+    public int health = 50;
 
     private void Update()
     {
@@ -67,6 +73,15 @@ public class PlayerManager : MonoBehaviour
         {
             canClimb = false;
             Debug.Log("Can't climb");
+        }
+    }
+
+    public void HurtPlayer(int damage)
+    {
+        health -= damage; 
+        if(health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
