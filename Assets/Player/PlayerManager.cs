@@ -1,9 +1,11 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,6 +14,11 @@ public class PlayerManager : MonoBehaviour
     public int currentSize = 1; //currentSize of player
     CinemachineVirtualCamera cam;
     PlayerController controller;
+    [SerializeField] TextMeshProUGUI gemCountText;
+    int gemsCollected = 0;
+
+    [SerializeField] Image fadeOut;
+    bool fading = false;
     private void Start()
     {
         cam = GetComponentInChildren<CinemachineVirtualCamera>();
@@ -29,6 +36,8 @@ public class PlayerManager : MonoBehaviour
         currentScale = gameObject.transform.localScale;
         currentCamSize = cam.m_Lens.OrthographicSize;
         isGrowing = true;
+        gemsCollected++;
+        gemCountText.text = $"{gemsCollected}/3";
     }
 
     //Vine climbing
@@ -57,6 +66,15 @@ public class PlayerManager : MonoBehaviour
                 isGrowing = false;
                 controller.maxSpeed *= 2;
                 controller.jumpForce *= 1.2f;
+            }
+        }
+
+        if (fading)
+        {
+            fadeOut.color = new Color(0, 0, 0, fadeOut.color.a + Time.deltaTime);
+            if(fadeOut.color.a >= 1)
+            {
+                SceneManager.LoadScene("YouWin");
             }
         }
     }
@@ -93,5 +111,11 @@ public class PlayerManager : MonoBehaviour
     {
         transform.position = checkPoint.transform.position;
         health = 20;
+    }
+
+    public void Fade()
+    {
+        fading = true;
+        fadeOut.gameObject.SetActive(true);
     }
 }
