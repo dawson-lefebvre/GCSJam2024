@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         {
             if (jumpAction.WasPressedThisFrame())
             {
-                if (rb.velocity.y == 0)
+                if (IsGrounded())
                 {
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 }
@@ -93,6 +93,20 @@ public class PlayerController : MonoBehaviour
             {
                 rb.gravityScale = 4;
             }
+        }
+    }
+
+    bool IsGrounded()
+    {
+        Bounds bounds = GetComponentInChildren<CapsuleCollider2D>().bounds;
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - bounds.extents.y - 0.1f), Vector2.down);
+        if(hit.distance <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
