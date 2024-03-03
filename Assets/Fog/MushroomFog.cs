@@ -9,15 +9,7 @@ public class MushroomFog : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.transform.root.AddComponent<PlayerHurt>();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            Destroy(collision.GetComponentInParent<PlayerHurt>());
+            collision.transform.root.gameObject.GetComponent<PlayerManager>().Die();
         }
     }
 }

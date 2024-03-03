@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour
     public void Die()
     {
         transform.position = checkPoint.transform.position;
-        health = 20;
+        health = 15;
     }
 
     public void Fade()
