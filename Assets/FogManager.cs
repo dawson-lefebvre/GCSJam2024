@@ -5,6 +5,7 @@ using UnityEngine;
 public class FogManager : MonoBehaviour
 {
     [SerializeField] GameObject Lamp;
+    [SerializeField] GameObject particles;
     bool LampLit;
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class FogManager : MonoBehaviour
             {
                 GetComponentInChildren<TheFog>().EnableFog();
                 LampLit = false;
+                particles.GetComponent<ParticleSystem>().Stop();
             }
         }
 
