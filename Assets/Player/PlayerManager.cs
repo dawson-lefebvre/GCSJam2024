@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    public GameObject checkPoint;
 
     public int currentSize = 1; //currentSize of player
     CinemachineVirtualCamera cam;
@@ -34,7 +35,7 @@ public class PlayerManager : MonoBehaviour
     public bool canClimb = false;
 
     //Health
-    public int health = 50;
+    public int health = 20;
 
     private void Update()
     {
@@ -84,7 +85,13 @@ public class PlayerManager : MonoBehaviour
         health -= damage; 
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        transform.position = checkPoint.transform.position;
+        health = 20;
     }
 }
