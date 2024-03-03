@@ -20,7 +20,7 @@ public class FogManager : MonoBehaviour
         {
             if (Lamp.GetComponent<LampControl>().holdingLightBugs)
             {
-                GetComponentInChildren<FogControl>().DisableFog();
+                GetComponentInChildren<TheFog>().DisableFog();
                 LampLit = true;
             }
         }
@@ -28,7 +28,7 @@ public class FogManager : MonoBehaviour
         {
             if (!Lamp.GetComponent<LampControl>().holdingLightBugs)
             {
-                GetComponentInChildren<FogControl>().EnableFog();
+                GetComponentInChildren<TheFog>().EnableFog();
                 LampLit = false;
             }
         }

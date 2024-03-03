@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 1713024490}
   - component: {fileID: 1713024493}
   - component: {fileID: 1713024492}
-  - component: {fileID: 1713024491}
+  - component: {fileID: 1713024494}
   m_Layer: 0
   m_Name: Fog
   m_TagString: Untagged
@@ -565,18 +565,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 302530829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1713024491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713024489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06f865a33a1b5fe4183fd45db7d3aaa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1713024492
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -606,7 +594,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -674,6 +662,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1713024494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713024489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92f29eff2c33844a88c0b78c4cd0ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783922402
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +855,14 @@ PrefabInstance:
     - target: {fileID: 3093111040224656245, guid: 89d672b181288204f8738e6c32f31905, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042484011780686621, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042484011780686621, guid: 89d672b181288204f8738e6c32f31905, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

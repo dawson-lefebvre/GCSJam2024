@@ -14,7 +14,6 @@ public class PlayerManager : MonoBehaviour
     {
         cam = GetComponentInChildren<CinemachineVirtualCamera>();
         controller = GetComponent<PlayerController>();
-        Grow();
     }
 
     //Vars for growing "animation"
