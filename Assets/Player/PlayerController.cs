@@ -5,6 +5,18 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Character")]
+    [SerializeField] Animator animator = null;
+    [SerializeField] Transform puppet = null;
+
+    [Header("Tail")]
+    [SerializeField] Transform tailAnchor = null;
+    [SerializeField] Rigidbody2D tailRigidbody = null;
+
+    [Header("Equipment")]
+    [SerializeField] Transform handAnchor = null;
+    [SerializeField] UnityEngine.U2D.Animation.SpriteLibrary spriteLibrary = null;
+
     //Components
     public Rigidbody2D rb;
     PlayerManager playerManager;
