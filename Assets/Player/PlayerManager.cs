@@ -7,6 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    [Header("Character")]
+    [SerializeField] Animator animator = null;
+    [SerializeField] Transform puppet = null;
+
+    [Header("Tail")]
+    [SerializeField] Transform tailAnchor = null;
+    [SerializeField] Rigidbody2D tailRigidbody = null;
+
+    [Header("Equipment")]
+    [SerializeField] Transform handAnchor = null;
+    [SerializeField] UnityEngine.U2D.Animation.SpriteLibrary spriteLibrary = null;
+
     public int currentSize = 1; //currentSize of player
     CinemachineVirtualCamera cam;
     PlayerController controller;
